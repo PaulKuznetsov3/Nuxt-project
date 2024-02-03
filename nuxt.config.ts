@@ -2,7 +2,12 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   css: [
-    "assets/styles/main.scss", 
+    "assets/styles/main.module.scss", 
+  ],
+  modules: [
+    // Using package name (recommended usage)
+    '@nuxtjs/modules',
+
   ],
 
 })
