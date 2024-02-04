@@ -1,103 +1,92 @@
 <template>
-  <div class="container">
-    <div class="buttonsResource">
-        <button>
-            Все
-        </button>
-        <button>
-            lenta.ru
-        </button>
-        <button>
-            Mos.ru
-        </button>
+  <div class="navbar">
+    <div class="title">
+      <h1>Список новостей</h1>
+      <button class="updateBtn">
+        <img :src="update" alt="">
+      </button>
     </div>
-    <div class="buttonDisplay">
-        <button class="btnList">
-            <div class="itemBtnList1"></div>
-            <div class="itemBtnList"></div>
-        </button>
-
-        <button class="btnTile">
-            <div class="btnTileItem"></div>
-            <div class="btnTileItem"></div>
-            <div class="btnTileItem"></div>
-            <div class="btnTileItem"></div>
-        </button>
+    <div class="searchInput">
+      <input type="text">
+      <button class="buttonSearch" type="button">
+        <img :src="search" alt="">
+      </button>
     </div>
   </div>
+  <div class="line"></div>
 </template>
 
 <script lang="ts" setup>
+  import update from '../assets/icons/update.svg';
+  import search from '../assets/icons/search.svg';
 
 </script>
 
 <style lang="scss" scoped>
-    .container {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 28px;
-    }
 
-    .buttonsResource{
-        display: flex;
-        gap: 15px;
-        button {
-            background: transparent;
-            border: none;
-            font-size: 16px;
-            font-weight: 700;
-            cursor: pointer;
-        }
-    }
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+  .updateBtn {
+    background-color: transparent;
+    margin-left: 30px;
+    border: none;
+    width: 40px;
+    height: 40px;
 
-    .buttonDisplay{
-        display: flex;
-        gap: 15px;
-        button {
-            border: none;
-            font-size: 16px;
-            font-weight: 700;
-            cursor: pointer;
-        }
+    img {
+      width: 40px;
+      height: 40px;
     }
+  }
 
-    .btnList{
-        display: block;
-        width: 18px;
-        height: 18px;
-        box-sizing: border-box;
-        background: none;
-    }
+  .searchInput {
+    position: relative;
+    box-shadow: 0px 2px 4px 0px #0000000D;
 
-    .itemBtnList1 {
-        width: 18px;
-        height: 8px;
-  
-        background-color: #C4C4C4;
-        box-sizing: border-box;
+    input {
+      padding: 12px 60px 12px 15px;
+      width: 321px;
+      font-size: 14px;
     }
+  }
 
-    .itemBtnList {
-        margin-top: 2px;
-        width: 18px;
-        height: 8px;
-        background-color: #C4C4C4;
-        box-sizing: border-box;
+  .buttonSearch {
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    width: 20px;
+    height: 20px;
+    right: 8%;
+    top: 24%;
+    cursor: pointer;
+    
+    img {
+      width: 20px;
+      height: 20x;
     }
+  }
 
-    .btnTile {
-        width: 18px;
-        height: 18px;
-        display: flex;
-        padding: 0;
-        flex-wrap: wrap;
-        align-content: space-between;
-        justify-content: space-around;
-    }
+  input {
+    border: none;
+  }
 
-    .btnTileItem{
-        background-color: #C4C4C4;
-        width: 8px;
-        height: 8px;
-    }
+  .line {
+    width: 100%;
+    margin-top: 36px;
+    height: 1px;
+    background-color: #E5E5E5;
+  }
 </style>

@@ -1,14 +1,13 @@
 <template>
   <div class="container">
-    <Navbar />
-    <PageBody/>
+    <PageHeader />
+    <Filteres />
+    <CardContainer />
   </div>
   
 </template>
 
 <script lang="ts" setup>
-
-
 
 </script>
 
