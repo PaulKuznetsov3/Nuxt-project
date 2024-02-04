@@ -1,13 +1,13 @@
 
 <template>
   <div :class="$cls.container">
-    <!-- <CardItem/>
     <CardItem/>
     <CardItem/>
-    <CardItem/> -->
+    <CardItem/>
+    <CardItem/>
+    <!-- <ListItem/>
     <ListItem/>
-    <ListItem/>
-    <ListItem/>
+    <ListItem/> -->
   </div>
 </template>
 

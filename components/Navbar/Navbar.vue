@@ -1,7 +1,7 @@
 <template>
   <div class="navbar">
     <div class="title">
-      <h2>Список новостей</h2>
+      <h1>Список новостей</h1>
       <button class="updateBtn">
         <img :src="update" alt="">
       </button>
@@ -20,6 +20,7 @@
   import update from '../assets/icons/update.svg';
   import search from '../assets/icons/search.svg';
 
+  
 </script>
 
 <style lang="scss" scoped>
