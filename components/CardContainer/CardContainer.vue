@@ -8,6 +8,7 @@
 
 <script lang="ts" setup>
   import cls from './style.module.scss';
+  import { ref } from 'vue';
 
   type ClassType = typeof cls;
   const $cls: ClassType = cls;
@@ -17,6 +18,9 @@
   }
 
   const props = defineProps<Props>();
+
+ 
+
 
 </script>
 
