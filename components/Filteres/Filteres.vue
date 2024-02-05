@@ -12,12 +12,12 @@
         </button>
     </div>
     <div class="buttonDisplay">
-        <button class="btnList">
+        <button class="btnList" @click="$emit(`${props.handleBtnListClick()}`)">
             <div class="itemBtnList1"></div>
             <div class="itemBtnList"></div>
         </button>
 
-        <button class="btnTile">
+        <button class="btnTile" @click="$emit(`${props.handleBtnTileClick()}`)">
             <div class="btnTileItem"></div>
             <div class="btnTileItem"></div>
             <div class="btnTileItem"></div>
@@ -28,10 +28,19 @@
 </template>
 
 <script lang="ts" setup>
+
     import cls from './style.module.scss';
     type ClassType = typeof cls;
     const $cls: ClassType = cls;
 
+    interface Props {
+        handleBtnListClick: () => void;
+        handleBtnTileClick: () => void;
+    }
+
+    const props = defineProps<Props>();
+
+   
 </script>
 
 <style lang="scss" scoped>

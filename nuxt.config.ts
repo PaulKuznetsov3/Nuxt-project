@@ -1,4 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
 export default defineNuxtConfig({
   devtools: { enabled: true },
   css: [
@@ -7,7 +8,6 @@ export default defineNuxtConfig({
   modules: [
     // Using package name (recommended usage)
     '@nuxtjs/modules',
-
+    "nuxt-security",
   ],
-
 })
