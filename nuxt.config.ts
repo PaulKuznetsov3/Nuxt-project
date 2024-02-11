@@ -9,5 +9,6 @@ export default defineNuxtConfig({
     // Using package name (recommended usage)
     '@nuxtjs/modules',
     "nuxt-security",
+
   ],
 })

@@ -12,12 +12,12 @@
         </button>
     </div>
     <div class="buttonDisplay">
-        <button class="btnList" @click="$emit(`${props.handleBtnListClick()}`)">
+        <button :class="btnList" @click="$emit(`${props.handleBtnListClick()}`)">
             <div class="itemBtnList1"></div>
             <div class="itemBtnList"></div>
         </button>
 
-        <button class="btnTile" @click="$emit(`${props.handleBtnTileClick()}`)">
+        <button :class="btnTile" @click="$emit(`${props.handleBtnTileClick()}`)">
             <div class="btnTileItem"></div>
             <div class="btnTileItem"></div>
             <div class="btnTileItem"></div>
@@ -30,17 +30,30 @@
 <script lang="ts" setup>
 
     import cls from './style.module.scss';
+    import { watchEffect } from 'vue';
     type ClassType = typeof cls;
     const $cls: ClassType = cls;
 
     interface Props {
         handleBtnListClick: () => void;
         handleBtnTileClick: () => void;
+        format: string;
     }
 
     const props = defineProps<Props>();
 
-   
+    console.log('format', props.format);
+        let btnTile: string;
+        let btnList: string;
+
+    watchEffect (() => {
+        console.log('format', props.format);
+        btnTile = `btnTile ${props.format === 'tile' ? 'active' : ' '}`;
+        btnList = `btnList ${props.format === 'list' ? 'active' : ' '}`;
+    })
+
+    console.log('props.format', props.format);
+
 </script>
 
 <style lang="scss" scoped>
@@ -68,6 +81,19 @@
         }
     }
 
+    .active {
+        .itemBtnList1 {
+            background-color: #0029FF;
+        }
+
+        .itemBtnList {
+            background-color: #0029FF;
+        }
+
+        .btnTileItem{
+            background-color: #0029FF;
+        }
+    }
     .btnList{
         display: block;
         width: 18px;

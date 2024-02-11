@@ -7,8 +7,8 @@
       </button>
     </div>
     <div class="searchInput">
-      <input type="text">
-      <button class="buttonSearch" type="button">
+      <input type="text" :value="props.searchQuery">
+      <button class="buttonSearch" type="button" @click="props.updateQuery">
         <img :src="search" alt="">
       </button>
     </div>
@@ -19,6 +19,13 @@
 <script lang="ts" setup>
   import update from '../assets/icons/update.svg';
   import search from '../assets/icons/search.svg';
+
+  interface Props {
+    searchQuery: any
+    updateQuery: any
+  }
+
+  const props = defineProps<Props>();
 
 </script>
 

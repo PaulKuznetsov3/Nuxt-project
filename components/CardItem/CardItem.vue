@@ -1,22 +1,22 @@
 <template>
   <div :class="$cls.container">
     <div :class="$cls.title">
-        <a href="#">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis rem nihil sequi illum cupiditate?
+        <a :href="$props.link">
+            {{ props.title }}
         </a>
     </div>
     <div :class="$cls.text">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis rem nihil sequi illum cupiditate?
+        {{ props.descr }}
     </div>
     <div :class="$cls.link">
-        <a href="#">Подробнее</a>
+        <a :href="$props.link">Подробнее</a>
     </div>
     <div :class="$cls.info" >
         <div class="resource">
-            rss
+            {{ domain }}
         </div>
         <div class="date">
-            01.01.2001
+            {{ formattedDate }}
         </div>
     </div>
   </div>
@@ -26,6 +26,22 @@
     import cls from './style.module.scss';
     type ClassType = typeof cls;
     const $cls: ClassType = cls;
+
+    
+  interface Props {
+    title: string,
+    descr: string,
+    link: string
+    date: string
+  }
+
+  const props = defineProps<Props>();
+
+  const url = new URL(props.link);
+  const domain = url.hostname;
+
+  const date = new Date(props.date);
+  const formattedDate = `${date.getDate()}.${(String(date.getMonth() + 1)).padStart(2, '0')}.${date.getFullYear()}`;
 </script>
 
 <style>

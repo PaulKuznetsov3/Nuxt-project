@@ -1,8 +1,28 @@
 
 <template>
   <div :class="$cls.container">
-    <CardItem v-if="props.format === 'tile'"/>
-    <ListItem v-if="props.format === 'list'"/>
+    <div :class="$cls.content" v-if="props.format === 'tile'" >
+      <CardItem 
+      v-for="item in props.newMosArr"
+      :title="item.title._text"
+      :descr="item.description._text"
+      :link="item.link._text"
+      :key = "item.pubDate._text"
+      :date="item.pubDate._text"
+    />
+    </div>
+    <div v-if="props.format === 'list'">
+      <ListItem
+        v-for="item in props.newMosArr"
+        :title="item.title._text"
+        :descr="item.description._text"
+        :link="item.link._text"
+        :key = "item.pubDate._text"
+        :date="item.pubDate._text"
+        :image="item.enclosure._attributes"
+      />
+    </div>
+
   </div>
 </template>
 
@@ -14,13 +34,13 @@
   const $cls: ClassType = cls;
 
   interface Props {
-    format: string
+    format: string,
+    newMosArr: any
   }
 
+
+
   const props = defineProps<Props>();
-
- 
-
 
 </script>
 
